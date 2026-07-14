@@ -6,7 +6,6 @@ schemaVersion = "0.0.1"
 [package]
 namespace = "eia485"
 name = "ExposeEditorlessMembers"
-versionNumber = "1.0.1"
 description = "shows all syncmembers in the inspector even if they dont have an editor" # max 250 characters
 websiteUrl = "http://github.com/EIA485/NeosExposeEditorlessMembers"
 containsNsfwContent = false
@@ -21,12 +20,12 @@ outdir = "build"
 
 # Copy the compiled DLL to the plugins folder in mod package
 [[build.copy]]
-source = "ExposeEditorlessMembers/bin/Release/net9.0/ExposeEditorlessMembers.dll"
+source = "ExposeEditorlessMembers/bin/Release/net10.0/ExposeEditorlessMembers.dll"
 target = "plugins/"
 
 # Include PDB
 [[build.copy]]
-source = "ExposeEditorlessMembers/bin/Release/net9.0/ExposeEditorlessMembers.pdb"
+source = "ExposeEditorlessMembers/bin/Release/net10.0/ExposeEditorlessMembers.pdb"
 target = "plugins/"
 
 # include LICENSE file in mod package

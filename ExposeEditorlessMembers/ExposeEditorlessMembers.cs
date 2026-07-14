@@ -71,7 +71,19 @@ namespace ExposeEditorlessMembers
 			}
         }
 
-		[HarmonyPatchCategory(HiddenCat)]
+		[HarmonyPatch(typeof(BagEditor), "BuildBagElement")]
+		class BuildBagElementPatch
+		{
+			static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> codes)
+			{
+				foreach (CodeInstruction code in codes)
+				{
+					if (code.opcode != OpCodes.Castclass) yield return code;
+				}
+			}
+        }
+
+        [HarmonyPatchCategory(HiddenCat)]
         [HarmonyPatch(typeof(WorkerInspector), nameof(WorkerInspector.BuildInspectorUI))]
         class WorkerInspectorPatch //HideInInspectorAttribute check
         {
